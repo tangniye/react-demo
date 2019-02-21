@@ -1,5 +1,4 @@
 const path = require('path')
-
 module.exports = {
   mode: 'production',
   entry: './src/index.js',
@@ -15,7 +14,15 @@ module.exports = {
       },
       {
         test: /\.scss?$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: { importLoaders: 2 },
+          },
+          'postcss-loader',
+          'sass-loader',
+        ]
       },
       {
         test: /\.jpg|jpeg|png|svg|gif?$/,
@@ -26,7 +33,7 @@ module.exports = {
             name: 'assets/[name].[hash:5].[ext]',
           }
         }
-      },
+      }
     ]
   }
 }
