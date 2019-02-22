@@ -13,6 +13,7 @@ module.exports = {
     sub: './src/index.js',
   },
   output: {
+    publicPath: '/',
     filename: '[name]/[name].[hash:5].js',
     path: path.resolve(__dirname, 'dist')
   },
