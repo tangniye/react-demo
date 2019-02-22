@@ -4,7 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
+  // production: 'cheap-module-eval-source-map'
+  // development: 'cheap-module-source-map'
+  devtool: 'cheap-module-eval-source-map',
   entry: {
     main: './src/index.js',
     sub: './src/index.js',
@@ -22,12 +25,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css|scss?$/,
+        test: /\.(scss|css)?$/,
         use: [
           'style-loader',
           {
             loader: 'css-loader',
             options: {
+              modules: true,
               importLoaders: 2,
               localIdentName: '[path][name]__[local]--[hash:base64:5]',
             },
@@ -37,7 +41,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.jpeg|jpg|png|svg|gif?$/,
+        test: /\.(jpeg|jpg|png|svg|gif)?$/,
         use: {
           loader: 'url-loader',
           options: {
@@ -47,7 +51,7 @@ module.exports = {
         }
       },
       {
-        test: /\.eot|svg|ttf|woff|woff2?$/,
+        test: /\.(eot|svg|ttf|woff|woff2)?$/,
         loader: 'file-loader',
         options: {
           name: 'assets/icons/[name].[hash:5].[ext]'

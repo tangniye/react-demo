@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "watch": "npx webpack --watch",
     "build": "npx webpack",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
