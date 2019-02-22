@@ -16,6 +16,14 @@ module.exports = {
     filename: '[name]/[name].[hash:5].js',
     path: path.resolve(__dirname, 'dist')
   },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    open: true,
+    port: 3000,
+    proxy: {
+      '/api': 'http://localhost:3000'
+    }
+  },
   plugins: [
     new HtmlWebpackPlugin({ template: 'public/index.html', }),
     new CleanWebpackPlugin([
