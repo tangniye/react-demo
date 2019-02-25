@@ -20,6 +20,8 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     open: true,
+    hot: true,
+    hotOnly: true,
     port: 3000,
     proxy: {
       '/api': 'http://localhost:3000'
@@ -29,7 +31,7 @@ module.exports = {
     new HtmlWebpackPlugin({ template: 'public/index.html', }),
     new CleanWebpackPlugin([
       'dist'
-    ])
+    ]),
   ],
   module: {
     rules: [

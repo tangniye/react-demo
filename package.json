@@ -8,13 +8,7 @@
     "react-scripts": "2.1.5"
   },
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "npx webpack",
-    "watch": "npx webpack --watch",
-    "server": "node server.js",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "babel": "babel src -d lib"
+    "start": "webpack-dev-server"
   },
   "eslintConfig": {
     "extends": "react-app"

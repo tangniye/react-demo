@@ -19,5 +19,9 @@ code {
   transform: translate(100px, 100px);
 }
 
+div:nth-of-type(even) {
+  background: red;
+}
+
 @import "App.scss";
 
