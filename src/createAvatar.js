@@ -5,6 +5,7 @@ function createAvatar() {
   const dom = document.getElementById('root')
   const img = document.createElement('img')
   img.src = bg
+  img.setAttribute('id', 'image')
   img.classList.add(style.avatar)
   dom.append(img)
 }

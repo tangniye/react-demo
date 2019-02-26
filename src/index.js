@@ -5,8 +5,6 @@ const root = document.getElementById('root')
 root.innerHTML = `<div class="iconfont icon-lock"></div>`
 
 createAvatar()
-createAvatar()
-createAvatar()
 
 const btn = document.createElement('button')
 btn.innerText = 'New'
@@ -16,4 +14,11 @@ btn.onclick = () => {
   const div = document.createElement('div')
   div.innerText = 'item'
   root.appendChild(div)
+}
+
+if (module.hot) {
+  module.hot.accept('./createAvatar', () => {
+    document.body.removeChild(document.getElementById('image'))
+    createAvatar()
+  })
 }
