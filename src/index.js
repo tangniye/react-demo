@@ -16,9 +16,11 @@ btn.onclick = () => {
   root.appendChild(div)
 }
 
-if (module.hot) {
-  module.hot.accept('./createAvatar', () => {
-    document.body.removeChild(document.getElementById('image'))
-    createAvatar()
-  })
-}
+const arr = [
+  new Promise(() => {}),
+  new Promise(() => {})
+]
+
+arr.map(item => {
+  console.log(item)
+})

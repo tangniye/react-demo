@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   // production: 'cheap-module-eval-source-map'
   // development: 'cheap-module-source-map'
   devtool: 'cheap-module-eval-source-map',
@@ -35,6 +35,11 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+      },
       {
         test: /\.(scss|css)?$/,
         use: [
