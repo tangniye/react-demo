@@ -8,8 +8,8 @@
     "react-dom": "^16.8.2"
   },
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "npx webpack"
+    "start": "webpack-dev-server --config build/webpack.config.dev.js",
+    "build": "npx webpack --config build/webpack.config.prod.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,6 +44,7 @@
     "webpack": "4.28.3",
     "webpack-cli": "^3.2.3",
     "webpack-dev-middleware": "^3.6.0",
-    "webpack-dev-server": "^3.2.0"
+    "webpack-dev-server": "^3.2.0",
+    "webpack-merge": "^4.2.1"
   }
 }

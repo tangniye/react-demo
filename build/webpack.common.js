@@ -1,40 +1,19 @@
 const path = require('path')
 //html-webpack-plugin 会在打包结束后 会自动生成一个index.html,并把打包生成的js自动引入到html中
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
-  mode: 'production',
-  // development: 'cheap-module-eval-source-map'
-  // production: 'cheap-module-source-map'
-  devtool: 'cheap-module-source-map',
   entry: {
     main: './src/index.js',
   },
   output: {
     publicPath: '/',
     filename: '[name]/[name].[hash:5].js',
-    path: path.resolve(__dirname, 'dist')
-  },
-  devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    open: true,
-    hot: true,
-    hotOnly: true,
-    port: 3000,
-    proxy: {
-      '/api': 'http://localhost:3000'
-    }
+    path: path.resolve(__dirname, '../dist')
   },
   plugins: [
     new HtmlWebpackPlugin({ template: 'public/index.html', }),
-    new CleanWebpackPlugin([
-      'dist'
-    ]),
   ],
-  optimization: {
-    usedExports: true
-  },
   module: {
     rules: [
       {
