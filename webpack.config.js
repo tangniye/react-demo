@@ -32,6 +32,9 @@ module.exports = {
       'dist'
     ]),
   ],
+  optimization: {
+    usedExports: true
+  },
   module: {
     rules: [
       {
