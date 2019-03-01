@@ -1,9 +1,6 @@
 {
   "name": "react-demo",
-  "sideEffects": [
-    "babel-pollyfil",
-    "*.css"
-  ],
+  "sideEffects": false,
   "version": "0.1.0",
   "private": true,
   "dependencies": {
