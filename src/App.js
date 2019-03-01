@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { join } from 'lodash'
 import logo from './logo.svg';
 import './App.scss';
 
 class App extends Component {
   render() {
+    console.log(join(['a', 'b', 'c']))
     return (
       <div className="App">
         <header className="App-header">

@@ -14,6 +14,11 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({ template: 'public/index.html', }),
   ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    }
+  },
   module: {
     rules: [
       {
