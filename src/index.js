@@ -1,26 +1,6 @@
-import './iconfont.scss'
-import createAvatar from './createAvatar'
+import React from 'react'
+import ReactDom from 'react-dom'
+import App from './App'
+import './index.scss'
 
-const root = document.getElementById('root')
-root.innerHTML = `<div class="iconfont icon-lock"></div>`
-
-createAvatar()
-
-const btn = document.createElement('button')
-btn.innerText = 'New'
-root.appendChild(btn)
-
-btn.onclick = () => {
-  const div = document.createElement('div')
-  div.innerText = 'item'
-  root.appendChild(div)
-}
-
-const arr = [
-  new Promise(() => {}),
-  new Promise(() => {})
-]
-
-arr.map(item => {
-  console.log(item)
-})
+ReactDom.render(<App/>, document.getElementById('root'))

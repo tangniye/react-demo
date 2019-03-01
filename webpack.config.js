@@ -7,10 +7,9 @@ module.exports = {
   mode: 'development',
   // production: 'cheap-module-eval-source-map'
   // development: 'cheap-module-source-map'
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'cheap-module-source-map',
   entry: {
     main: './src/index.js',
-    sub: './src/index.js',
   },
   output: {
     publicPath: '/',
@@ -57,20 +56,20 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpeg|jpg|png|svg|gif)?$/,
+        test: /\.(jpe?g|svg|png|gif)?$/,
         use: {
           loader: 'url-loader',
           options: {
-            limit: 2048,
+            limit: 10000,
             name: 'assets/img/[name].[hash:5].[ext]',
           }
         }
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2)?$/,
+        test: /\.(eot|ttf|woff|woff2)?$/,
         loader: 'file-loader',
         options: {
-          name: 'assets/icons/[name].[hash:5].[ext]'
+          name: 'assets/fonts/[name].[hash:5].[ext]'
         }
       }
     ]
