@@ -24,7 +24,7 @@ module.exports = {
       // maxAsyncRequests: 5, 超过5个后，不会进行代码分割了
       // maxInitialRequests: 3, 入口文件加载时，入口文件引入的文件最多3个，超过3个后，不会进行代码分割了
       // automaticNameDelimiter: '~', 文件名的链接符
-      name: false, //使得output中chunkFilename的name生效
+      // name: true, //使得output中chunkFilename的name生效
       cacheGroups: {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
