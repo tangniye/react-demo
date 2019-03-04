@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-import { join } from 'lodash'
 import logo from './logo.svg';
 import './App.scss';
 
 class App extends Component {
+
+  async getDynamic() {
+    const { join } = await import(/* webpackChunkName: "lodash" */ 'lodash')
+    return join(['a', 'b', 'c'], '-')
+  }
+
   render() {
-    console.log(join(['a', 'b', 'c']))
+    this.getDynamic().then(str => {
+      console.log(str)
+    })
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={logo} className="App-logo" alt="logo"/>
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
