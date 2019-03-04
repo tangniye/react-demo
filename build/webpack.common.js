@@ -8,7 +8,8 @@ module.exports = {
   },
   output: {
     publicPath: '/',
-    filename: '[name]/[name].[hash:5].js',
+    filename: 'js/[name].[hash:5].js',
+    chunkFilename: 'js/[name].[hash:5].js',
     path: path.resolve(__dirname, '../dist')
   },
   plugins: [
@@ -16,7 +17,27 @@ module.exports = {
   ],
   optimization: {
     splitChunks: {
+      // chunks: 'async', chunk只对异步代码生效
       chunks: 'all',
+      // minChunks: 1, 最小引入次数，当一个模块至少引入多少次时才会被代码分割
+      // maxSize: 50000, 50kb
+      // maxAsyncRequests: 5, 超过5个后，不会进行代码分割了
+      // maxInitialRequests: 3, 入口文件加载时，入口文件引入的文件最多3个，超过3个后，不会进行代码分割了
+      // automaticNameDelimiter: '~', 文件名的链接符
+      name: false, //使得output中chunkFilename的name生效
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          priority: -10, //值越大，优先级越高
+        },
+        // default: {
+        //   minChunks: 2,
+        //   priority: -20,
+        //   reuseExistingChunk: true, 如果一个模块已经被打包过了，会忽略当前打包，而使用之前打包过的模块
+        //   name: 'common',
+        // },
+      }
     }
   },
   module: {
