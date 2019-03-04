@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
-import { join } from 'lodash';
 import logo from './logo.svg';
 import './App.scss';
 
 class App extends Component {
+  async getDynamic() {
+    const { join } = await import(/* webpackChunkName: "lodash" */ 'lodash')
+    return join(['a', 'b', 'c'], '-')
+  }
+
+  componentDidMount() {
+    document.addEventListener('click', () => {
+      this.getDynamic().then((str) => {
+        console.log(str)
+      })
+    })
+  }
+
   render() {
-    console.log(join(['a', 'b', 'c'], '-'))
     return (
       <div className="App">
         <header className="App-header">
