@@ -1,6 +1,7 @@
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const merge = require('webpack-merge')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const commonConfig = require('./webpack.common')
 
 const prodConfig = {
@@ -13,6 +14,7 @@ const prodConfig = {
       ['dist'],
       { root: path.resolve(__dirname, '../') }
     ),
+    new BundleAnalyzerPlugin(),
   ],
 }
 
