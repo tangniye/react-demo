@@ -4,3 +4,8 @@ import App from './App'
 import './index.scss'
 
 ReactDom.render(<App/>, document.getElementById('root'))
+document.addEventListener('click', () => {
+  import(/* webpackPrefetch: true */ './click.js').then(({ default: func }) => {
+    func()
+  })
+})
