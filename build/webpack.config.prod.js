@@ -3,6 +3,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const merge = require('webpack-merge')
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const commonConfig = require('./webpack.common')
 
 const prodConfig = {
@@ -17,10 +18,15 @@ const prodConfig = {
     ),
     // new BundleAnalyzerPlugin(),
     new MiniCssExtractPlugin({
-      filename: "css/[name].[hash:5].css",
-      chunkFilename: "css/[name].[hash:5].chuck.css",
+      filename: 'css/[name].[hash:5].css',
+      chunkFilename: 'css/[name].[hash:5].chuck.css',
     })
   ],
+  optimization: {
+    minimizer: [
+      new OptimizeCSSAssetsPlugin({})
+    ]
+  },
   module: {
     rules: [
       {
