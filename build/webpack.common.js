@@ -7,7 +7,7 @@ module.exports = {
     main: './src/index.js',
   },
   output: {
-    publicPath: '/',
+    publicPath: './',
     filename: 'js/[name].[hash:5].js',
     chunkFilename: 'js/[name].[hash:5].chunk.js',
     path: path.resolve(__dirname, '../dist')
