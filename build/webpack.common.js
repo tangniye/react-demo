@@ -16,6 +16,7 @@ module.exports = {
     new HtmlWebpackPlugin({ template: 'public/index.html', }),
   ],
   optimization: {
+    usedExports: true,
     splitChunks: {
       // chunks: 'async', chunk只对异步代码生效
       chunks: 'all',

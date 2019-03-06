@@ -16,9 +16,6 @@ const devConfig = {
       '/api': 'http://localhost:3000'
     }
   },
-  optimization: {
-    usedExports: true
-  },
   module: {
     rules: [
       {

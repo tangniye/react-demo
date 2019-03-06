@@ -1,6 +1,8 @@
 {
   "name": "react-demo",
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css"
+  ],
   "version": "0.1.0",
   "private": true,
   "dependencies": {

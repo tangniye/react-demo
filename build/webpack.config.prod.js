@@ -17,8 +17,8 @@ const prodConfig = {
     ),
     // new BundleAnalyzerPlugin(),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[name].chuck.css"
+      filename: "css/[name].css",
+      chunkFilename: "css/[name].chuck.css"
     })
   ],
   module: {
