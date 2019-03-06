@@ -9,7 +9,7 @@ module.exports = {
   output: {
     publicPath: '/',
     filename: 'js/[name].[hash:5].js',
-    chunkFilename: 'js/[name].[hash:5].js',
+    chunkFilename: 'js/[name].[hash:5].chunk.js',
     path: path.resolve(__dirname, '../dist')
   },
   plugins: [
@@ -46,22 +46,6 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-      },
-      {
-        test: /\.(scss|css)?$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              importLoaders: 2,
-              localIdentName: '[path][name]__[local]--[hash:base64:5]',
-            },
-          },
-          'postcss-loader',
-          'sass-loader',
-        ]
       },
       {
         test: /\.(jpe?g|svg|png|gif)?$/,

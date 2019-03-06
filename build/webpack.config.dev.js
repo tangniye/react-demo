@@ -19,6 +19,26 @@ const devConfig = {
   optimization: {
     usedExports: true
   },
+  module: {
+    rules: [
+      {
+        test: /\.(scss|css)?$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              importLoaders: 2,
+              localIdentName: '[path][name]__[local]--[hash:base64:5]',
+            },
+          },
+          'postcss-loader',
+          'sass-loader',
+        ]
+      },
+    ]
+  }
 }
 
 module.exports = merge(commonConfig, devConfig)
